@@ -19,7 +19,7 @@ function buildQuery(data: Record<string, string>) {
 async function getImages(filter: string = ""): Promise<ImageResponse> {
   let resource = filter ? `/search` : DEFAULT_RESOURCE;
 
-  const params = { query: filter, per_page: "200" };
+  const params = { query: filter, per_page: "25" };
 
   resource = resource.concat(`?${buildQuery(params)}`);
 

@@ -13,6 +13,5 @@ export default async function Content({ filter }: Props) {
 
   const blurred = await Image.blur(images);
 
-  // @ts-expect-error Server Component
   return <Gallery photos={blurred} />;
 }

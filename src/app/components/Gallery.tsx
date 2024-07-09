@@ -5,7 +5,7 @@ interface Props {
   photos: IPhoto[];
 }
 
-export default async function Gallery({ photos }: Props) {
+export default function Gallery({ photos }: Props) {
   const getPhotoSpans = (width: number, height: number) => {
     const aspectRatio = height / width;
     const galleryHeight = Math.ceil(250 * aspectRatio);
