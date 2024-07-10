@@ -1,19 +1,20 @@
 name: PageSpeed
 on:
-  workflow_dispatch:
-  release:
-    types: [created]
+  pull_request:
+    types: [synchronize, opened, reopened]
 
 jobs:
   page-speed:
     runs-on: ubuntu-latest
     steps:
-      - name: Running Page Speed Insights
-      - id: psi
+      - uses: actions/checkout@v2
+  
       - uses: jakepartusch/psi-action@v1.3
+        name: Page Speed Insights
+        id: psi
         with:
           url: "https://image-gallery-beryl-alpha.vercel.app/"
-          threshold: 70
+          threshold: 90
           strategy: mobile
-          key: ${{ secrets.APIKEY }}
+          key: ${{ secrets.GOOGLE_API_KEY }}
       
