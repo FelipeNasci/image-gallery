@@ -1,0 +1,19 @@
+name: PageSpeed
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  page-speed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running Page Speed Insights
+      - id: psi
+      - uses: jakepartusch/psi-action@v1.3
+        with:
+          url: "https://image-gallery-beryl-alpha.vercel.app/"
+          threshold: 70
+          strategy: mobile
+          key: ${{ secrets.APIKEY }}
+      
